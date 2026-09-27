@@ -1,167 +1,167 @@
 <!DOCTYPE html>
-<html lang="zh‑CN">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF‑8" />
-<meta name="viewport" content="width=device‑width, initial‑scale=1.0"/>
-<title>Mr‑Wu‑Raven | Homepage</title>
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-body{
-  min-height:100vh;
-  /*深色渐变背景，Calm UI风格 */
-  background-image: linear-gradient(145deg,#0b101c,#141b2d,#182238);
-  color:#e2e8f0;
-  font-family: system-ui, "JetBrains Mono",-apple-system, sans-serif;
-  padding: 42px 18px;
-}
-.container{
-  max-width:1140px;
-  margin:0 auto;
-}
-/* Bento Grid 便当网格核心 */
-.bento-grid{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-/* Liquid Glass 液态玻璃卡片 */
-.glass{
-  background-color: rgba(255,255,255,0.07);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border:1px solid rgba(255,255,255,0.13);
-  border-radius: 22px;
-  padding:26px;
-  transition: 0.32s ease-all;
-}
-.glass:hover{
-  background-color:rgba(255,255,255,0.11);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.28);
-  border-color:rgba(148,212,255,0.22);
-}
-/* 网格跨列规格 */
-.big-2{grid-column: span 2;}
-.full-3{grid-column: span 3;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr-Wu-Raven | Homepage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
 
-h1{
-  font-size:2.45rem;
-  margin-bottom:10px;
-  color:#f8fafc;
-}
-.sub-title{
-  color:#94a3b8;
-  font-size:1.08rem;
-}
-h2{
-  font-size:1.32rem;
-  margin-bottom:14px;
-  color:#cbd5e1;
-}
-p,li{
-  color:#94a3b8;
-  line-height:1.7;
-}
-ul{
-  padding-left:22px;
-}
-.link-group a{
-  display: inline-block;
-  text-decoration:none;
-  color:#93c5fd;
-  padding:9px 15px;
-  border-radius:12px;
-  background-color:rgba(255,255,255,0.06);
-  margin:7px 10px 7px 0;
-  transition:0.25s;
-}
-.link-group a:hover{
-  background-color:rgba(255,255,255,0.13);
-}
-.hitokoto-text{
-  margin-top:14px;
-  color:#7dd3fc;
-  font-style:italic;
-}
-/* 手机端响应式，Bento网格变为单列 */
-@media(max-width:768px){
-  .bento-grid{
-    grid-template-columns: 1fr;
-  }
-  .big-2,.full-3{
-    grid-column: span 1;
-  }
-  h1{font-size:1.9rem;}
-}
-</style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+            padding: 40px 20px;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Bento 网格布局 */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* 液态玻璃样式 Glassmorphism 2.0 */
+        .bento-card.glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.35s ease;
+        }
+
+        .bento-card.glass:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+            border-color: rgba(255,255,255,0.25);
+        }
+
+        .bento-card h2, .bento-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .bento-card p {
+            color: rgba(255,255,255,0.75);
+            line-height: 1.6;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 12px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        /* 网格跨列适配 */
+        .span-4 { grid-column: span 4; }
+        .span-2 { grid-column: span 2; }
+        .span-1 { grid-column: span 1; }
+
+        /* 移动端响应式 */
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+            .span-4, .span-2 {
+                grid-column: span 2;
+            }
+        }
+        @media (max-width:480px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .span-4, .span-2, .span-1 {
+                grid-column: span 1;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<div class="bento-grid">
+    <div class="container">
+        <div class="bento-grid">
+            <!-- 头部个人介绍卡片 -->
+            <div class="bento-card glass span-4">
+                <h2>👋 Hi, I'm Mr-Wu-Raven</h2>
+                <p>信竞爱好者 | Web开发 | 独立项目创作者</p>
+            </div>
 
-  <!-- 头部大卡片 占2格 -->
-  <div class="glass big-2">
-    <h1>Mr‑Wu‑Raven</h1>
-    <div class="sub-title">OI算法｜Web开发｜古风文字爱好者</div>
-    <div class="hitokoto-text" id="yiyan">✨ 加载一言句子……</div>
-    <div class="link-group" style="margin-top:18px;">
-      <a href="https://github.com/Mr-Wu-Raven">GitHub</a>
+            <!-- 关于我 -->
+            <div class="bento-card glass span-2">
+                <h3>📌 About Me</h3>
+                <p>专注算法竞赛，喜欢写网页、做原型项目。热爱探索新技术，持续产出个人作品。</p>
+            </div>
+
+            <!-- 技能卡片 -->
+            <div class="bento-card glass span-2">
+                <h3>⚡ Skills</h3>
+                <p>C++ / Python / HTML / CSS / JavaScript<br>洛谷 | AtCoder | GitHub Pages</p>
+            </div>
+
+            <!-- 项目 -->
+            <div class="bento-card glass span-2">
+                <h3>🚀 Projects</h3>
+                <p>个人网站、网页原型、算法小工具</p>
+                <a href="#" class="btn">查看仓库</a>
+            </div>
+
+            <!-- 社交链接 -->
+            <div class="bento-card glass span-2">
+                <h3>🔗 Links</h3>
+                <p>GitHub / Luogu</p>
+                <a href="https://github.com/Mr-Wu-Raven" target="_blank" class="btn">GitHub主页</a>
+            </div>
+
+            <!-- ✅【新增】图片合集跳转卡片 -->
+            <div class="bento-card glass span-2">
+                <h3>🖼️ 图片合集</h3>
+                <p>收藏素材图库，点击进入浏览collection页面</p>
+                <a href="./collection.html" class="btn">前往查看</a>
+            </div>
+
+            <!-- 留言/一言 -->
+            <div class="bento-card glass span-2">
+                <h3>💬 Quote</h3>
+                <p id="hitokoto">加载中...</p>
+            </div>
+
+        </div>
     </div>
-  </div>
 
-  <!-- 关于我 -->
-  <div class="glass">
-    <h2>关于我</h2>
-    <p>偏爱清冷古风，落笔皆霜雪，字字尽孤凉。</p>
-  </div>
-
-  <!-- 技术栈 -->
-  <div class="glass">
-    <h2>技术栈</h2>
-    <ul>
-      <li>C++ / OI算法</li>
-      <li>HTML + CSS + JS</li>
-      <li>静态网页、GitHub Pages</li>
-    </ul>
-  </div>
-
-  <!-- 工具资源 -->
-  <div class="glass">
-    <h2>常用资源</h2>
-    <ul>
-      <li>Luogu / AtCoder</li>
-      <li>VSCode</li>
-      <li>LaTeX公式编辑</li>
-    </ul>
-  </div>
-
-  <!-- 项目区域 占满整行3格 -->
-  <div class="glass full-3">
-    <h2>📌 精选项目</h2>
-    <p>后续可以在这里填写你的项目描述与链接。</p>
-    <div class="link-group" style="margin-top:10px;">
-      <a href="#">项目示例1</a>
-      <a href="#">项目示例2</a>
-    </div>
-  </div>
-
-</div>
-</div>
-
-<script>
-// 调用一言v1接口，静态页面兼容GitHub Pages
-fetch("https://v1.hitokoto.cn/?encode=json")
-.then(res=>res.json())
-.then(data=>{
-  document.getElementById("yiyan").innerText = `「${data.hitokoto}」 ——${data.from}`
-})
-.catch(()=>{
-  document.getElementById("yiyan").innerText = "✨风月从来皆薄幸，山河依旧少温情。"
-})
-</script>
+    <!-- Hitokoto 一言API -->
+    <script>
+        fetch('https://v1.hitokoto.cn')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('hitokoto').innerText = data.hitokoto;
+            })
+            .catch(() => {
+                document.getElementById('hitokoto').innerText = "道阻且长，行则将至";
+            })
+    </script>
 </body>
 </html>
